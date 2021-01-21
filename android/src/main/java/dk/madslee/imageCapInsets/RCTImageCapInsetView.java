@@ -61,16 +61,16 @@ public class RCTImageCapInsetView extends ImageView {
                 int bottom = bitmap.getHeight() - dp2px(mCapInsets.bottom);
                 int left = dp2px(mCapInsets.left);
 
-                Drawable ninePatchDrawable = NinePatchBitmapFactory
+                Drawable drawable = NinePatchBitmapFactory
                         .createNinePathWithCapInsets(getResources(), bitmap, top, left, bottom, right, null);
-                setBackground(ninePatchDrawable);
+                setBackground(drawable);
 
                 if(RCTImageCapInsetView.this.tintColor != -1){
                     drawable = DrawableCompat.wrap(drawable);
                     DrawableCompat.setTint(drawable, RCTImageCapInsetView.this.tintColor);
                 }
 
-                cache.put(key, ninePatchDrawable);
+                cache.put(key, drawable);
             }
         });
 
