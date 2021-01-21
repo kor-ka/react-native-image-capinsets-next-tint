@@ -38,6 +38,7 @@ ImageCapInset.propTypes = {
     left: PropTypes.number,
     right: PropTypes.number,
     bottom: PropTypes.number,
+    tintColor: PropTypes.number,
   }),
 };
 
