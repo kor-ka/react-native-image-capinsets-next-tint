@@ -5,6 +5,7 @@ import {
   Image,
   requireNativeComponent,
   processColor,
+  StyleSheet,
 } from "react-native";
 import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
 
@@ -13,7 +14,9 @@ class ImageCapInset extends Component {
     const { children, source, capInsets, ...rest } = this.props;
 
     const normalizedSource = resolveAssetSource(source);
-    const tintColor = processColor(this.props.style.tintColor);
+    const tintColor = processColor(
+      StyleSheet.flatten(this.props.style).tintColor
+    );
 
     return (
       <View {...rest}>
