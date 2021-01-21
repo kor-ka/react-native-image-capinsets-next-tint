@@ -1,12 +1,11 @@
 package dk.madslee.imageCapInsets;
 
-import android.graphics.drawable.NinePatchDrawable;
 import java.util.HashMap;
-
+import android.graphics.drawable.Drawable;
 
 public class RCTImageCache {
     private static RCTImageCache instance = null;
-    private HashMap<String, NinePatchDrawable> mCache;
+    private HashMap<String, Drawable> mCache;
 
     public static RCTImageCache getInstance() {
         if (instance == null) {
@@ -20,11 +19,11 @@ public class RCTImageCache {
         mCache = new HashMap<>();
     }
 
-    public void put(String key, NinePatchDrawable drawable) {
+    public void put(String key, Drawable drawable) {
         mCache.put(key, drawable);
     }
 
-    public NinePatchDrawable get(String key) {
+    public Drawable get(String key) {
         return mCache.get(key);
     }
 

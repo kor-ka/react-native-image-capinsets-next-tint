@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
-import {
-  ImageBackground,
-  Image,
-} from 'react-native';
+import React, { Component } from "react";
+import { Image } from "react-native";
 
 class ImageCapInset extends Component {
   render() {
-    return (
-      <ImageBackground
-        {...this.props}
-        resizeMode={'stretch'}
-      />
-    );
+    return <Image {...this.props} resizeMode={"stretch"} />;
   }
 }
 

@@ -1,26 +1,27 @@
 {
-  "name": "react-native-image-capinsets-next",
+  "name": "react-native-image-capinsets-next-tint",
   "main": "index.js",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/mayconmesquita/react-native-image-capinsets-next.git"
+    "url": "https://github.com/kor-ka/react-native-image-capinsets-next-tint.git"
   },
   "scripts": {
     "patch": "npm version patch -m 'Bump version %s';git push origin master --tags"
   },
-  "version": "0.6.1",
+  "version": "0.6.3",
   "description": "android support for Image `capInsets`",
   "author": {
-    "name": "mayconmesquita",
-    "email": "hello@maycon.dev"
+    "name": "kor-ka",
+    "email": "gleb.putintsev.91@yandex.ru"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/mayconmesquita/react-native-image-capinsets-next",
+  "homepage": "https://github.com/kor-ka/react-native-image-capinsets-next-tint.git",
   "keywords": [
+    "tintColor",
     "capInsets",
     "9-patch",
     "nine-patch",

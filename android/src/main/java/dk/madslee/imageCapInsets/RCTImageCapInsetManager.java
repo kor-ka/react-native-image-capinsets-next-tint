@@ -34,4 +34,9 @@ public class RCTImageCapInsetManager extends SimpleViewManager<RCTImageCapInsetV
         String uri = source.getString("uri");
         view.setSource(uri);
     }
+
+    @ReactProp(name = "tintColor")
+    public void setTintColor(final RCTImageCapInsetView view, int color) {
+         view.setTintColor(color);
+    }
 }

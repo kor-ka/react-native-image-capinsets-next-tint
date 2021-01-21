@@ -2,8 +2,10 @@ package dk.madslee.imageCapInsets;
 
 import android.content.Context;
 import android.graphics.*;
-import android.graphics.drawable.NinePatchDrawable;
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
+
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import dk.madslee.imageCapInsets.utils.NinePatchBitmapFactory;
 import dk.madslee.imageCapInsets.utils.RCTImageLoaderListener;
@@ -13,6 +15,7 @@ import dk.madslee.imageCapInsets.utils.RCTImageLoaderTask;
 public class RCTImageCapInsetView extends ImageView {
     private Rect mCapInsets;
     private String mUri;
+    private int tintColor = -1;
 
     public RCTImageCapInsetView(Context context) {
         super(context);
@@ -32,8 +35,13 @@ public class RCTImageCapInsetView extends ImageView {
         reload();
     }
 
+    public void setTintColor(int tintColor){
+        this.tintColor = tintColor;
+        reload();
+    }
+
     public void reload() {
-        final String key = mUri + "-" + mCapInsets.toShortString();
+        final String key = mUri + "-" + mCapInsets.toShortString() + "-" + this.tintColor;
         final RCTImageCache cache = RCTImageCache.getInstance();
 
         if (cache.has(key)) {
@@ -53,9 +61,14 @@ public class RCTImageCapInsetView extends ImageView {
                 int bottom = bitmap.getHeight() - dp2px(mCapInsets.bottom);
                 int left = dp2px(mCapInsets.left);
 
-                NinePatchDrawable ninePatchDrawable = NinePatchBitmapFactory
+                Drawable ninePatchDrawable = NinePatchBitmapFactory
                         .createNinePathWithCapInsets(getResources(), bitmap, top, left, bottom, right, null);
                 setBackground(ninePatchDrawable);
+
+                if(RCTImageCapInsetView.this.tintColor != -1){
+                    drawable = DrawableCompat.wrap(drawable);
+                    DrawableCompat.setTint(drawable, RCTImageCapInsetView.this.tintColor);
+                }
 
                 cache.put(key, ninePatchDrawable);
             }
